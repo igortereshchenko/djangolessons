@@ -1,0 +1,26 @@
+{% extends "wrapper.html" %}
+
+{% block content %}
+
+    Main page context <br>
+
+
+
+
+    {% if variable == True %}
+        {% include "include/part1.html" %}
+    {% else %}
+        {% include "include/part2.html" %}
+    {% endif %}
+
+
+    {% for i in list %}
+        <p>{{i}}</p>
+    {% endfor %}
+
+    <div>
+         {%  load staticfiles %}
+        <img src="{% static 'images/mainpage/django.png' %}" class="img-thumbnail">
+    </div>
+
+{% endblock  %}

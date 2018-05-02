@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    {%  load staticfiles %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+Try parameters
+
+{% for name in values %}
+    <p>{{name}}</p>
+{% endfor %}
+
+
+{{table|safe}}
+
+<table>
+{% for customer in customers %}
+    <tr>
+        <td>ID = {{customer.id}}</td>
+        <td>Name is {{customer.name}}</td>
+    </tr>
+{% endfor %}
+</table>
+
+</body>
+</html>
