@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render
 
 
@@ -29,3 +29,27 @@ def tryparameters(request):
     print(table)
     #table = '<table></table>'
     return render(request, 'tryparameters.html', {'values' : ['Mike', 'John', 'Kate'], 'table' : table, 'customers' : purecustomers})
+
+
+def formload(request):
+    return render(request, 'form.html')
+
+
+def form_handler(request):
+
+    print(request.POST["lastname"])
+
+    return HttpResponse("Done!")
+
+
+def check_name(request):
+
+    print("Hi")
+    print(request.GET)
+
+    if request.GET:
+        user = request.GET["name"]
+        print(user)
+        return JsonResponse({'foo':'bar'})
+    else:
+        pass

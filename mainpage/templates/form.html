@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% load staticfiles %}
+
+    <script src="{% static "jquery/jquery-3.3.1.min.js" %}"></script>
+</head>
+<body>
+
+
+<form action="{% url 'form_handler' %}" method="post">
+    {% csrf_token %}
+
+  First name:<br>
+  <input type="text" name="firstname" value="Mickey" id="user_name">
+
+  <br>
+  Last name:<br>
+  <input type="text" name="lastname" value="Mouse">
+  <br><br>
+  <input type="submit" value="Submit">
+</form>
+
+
+    <button id="checkname">Check name</button>
+</body>
+
+{%block add_script  %}
+    <script src={% static "js/form.js"%}></script>
+{% endblock %}
+</html>
